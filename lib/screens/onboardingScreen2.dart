@@ -17,34 +17,34 @@ class onboardingScreen2 extends StatelessWidget {
           ),
         ),),
         Expanded(flex: 1,child: Container(color: Colors.white,
-          child: SingleChildScrollView(
-            child: Column(children: [
-              SizedBox(height: 12,),
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 38.0,vertical: 25),
-                child: Text(textAlign: TextAlign.center,"Track your workout and health progress",style: GoogleFonts.poppins(fontSize:30,fontWeight:FontWeight.bold),),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 38.0),
+              child: Text(textAlign: TextAlign.center,"Track your workout and health progress",style: GoogleFonts.poppins(fontSize:30,fontWeight:FontWeight.bold),),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(textAlign: TextAlign.center,"Effortlessly track your fitness journey, log workouts, and monitor health metrics for streamlined progress tracking.",style: GoogleFonts.poppins(fontSize:18,color:Colors.black54),),
+            ),
+
+            Center(
+              child: SizedBox(width: 200,
+                child: MaterialButton(elevation: 0,height: 40,color:Colors.black87,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
+                  Get.to(()=>onboardingScreen3(),transition: Transition.leftToRightWithFade);
+                },child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Next",style: GoogleFonts.poppins(fontSize:16,fontWeight:FontWeight.w600,color:Colors.white)),
+                    SizedBox(width: 8,),
+                    Icon(Icons.arrow_forward_outlined,color: Colors.white,)
+                  ],
+                ),),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(textAlign: TextAlign.center,"Effortlessly track your fitness journey, log workouts, and monitor health metrics for streamlined progress tracking.",style: GoogleFonts.poppins(fontSize:18,color:Colors.black54),),
-              ),
-              SizedBox(height: 40,),
-              Center(
-                child: SizedBox(width: 200,
-                  child: MaterialButton(elevation: 0,height: 40,color:Colors.black87,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-                    Get.to(()=>onboardingScreen3(),transition: Transition.leftToRightWithFade);
-                  },child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Next",style: GoogleFonts.poppins(fontSize:16,fontWeight:FontWeight.w600,color:Colors.white)),
-                      SizedBox(width: 8,),
-                      Icon(Icons.arrow_forward_outlined,color: Colors.white,)
-                    ],
-                  ),),
-                ),
-              ),
-            ],),
-          ),)),
+            ),
+          ],),)),
       ],),
     );
   }
