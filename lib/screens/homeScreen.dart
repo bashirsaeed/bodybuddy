@@ -12,13 +12,13 @@ class homeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 2,
         toolbarHeight: 60,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white.withOpacity(0.2),
         title: Row(
           children: [
             Image(image: AssetImage("assets/images/dumm.png"),height: 50,width: 50,),
-           Text("Body Buddy",style: GoogleFonts.aBeeZee(color: Colors.black,fontSize: 27),),
+           Text("Body Buddy",style: GoogleFonts.poppins(color: Colors.black,fontSize: 27),),
             SizedBox(width: 50,),
             Icon(Icons.search),
             SizedBox(width: 10,),
@@ -52,7 +52,7 @@ class homeScreen extends StatelessWidget {
               child: Align(alignment: Alignment.topLeft,child: Row(
                 children: [
                   SizedBox(height: 100,),
-                  Text("Morning,Member",style: GoogleFonts.aBeeZee(fontSize: 27),),
+                  Text("Morning,Member",style: GoogleFonts.poppins(fontSize: 27),),
                   SizedBox(width: 10,),
                   Image(image: AssetImage("assets/images/clapping.png"),height: 30,width: 30,),
                 ],
@@ -63,9 +63,9 @@ class homeScreen extends StatelessWidget {
               padding:  EdgeInsets.only(left: 15),
               child: Align(alignment: Alignment.topLeft,child: Row(
                 children: [
-                  Text("Featured Workout",style: GoogleFonts.roboto(fontSize: 20,fontWeight: FontWeight.bold),),
-                  SizedBox(width: 110,),
-                  Text("See all",style: GoogleFonts.roboto(fontSize: 20,color: Colors.orange,fontWeight: FontWeight.bold),),
+                  Text("Featured Workout",style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.bold),),
+                  SizedBox(width: 80,),
+                  Text("See all",style: GoogleFonts.poppins(fontSize: 20,color: Colors.orange,fontWeight: FontWeight.bold),),
 
                 ],
               )),
@@ -211,9 +211,9 @@ class homeScreen extends StatelessWidget {
               padding:  EdgeInsets.only(left: 15),
               child: Align(alignment: Alignment.topLeft,child: Row(
                 children: [
-                  Text("Workout Levels",style: GoogleFonts.roboto(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                  SizedBox(width: 130,),
-                  Text("See all",style: GoogleFonts.roboto(fontSize: 20,color: Colors.orange,fontWeight: FontWeight.bold),),
+                  Text("Workout Levels",style: GoogleFonts.poppins(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                  SizedBox(width:110,),
+                  Text("See all",style: GoogleFonts.poppins(fontSize: 20,color: Colors.orange,fontWeight: FontWeight.bold),),
                 ],
               )),
             ),
