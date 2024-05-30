@@ -1,7 +1,5 @@
 import 'package:bodybuddy/screens/accountSetup.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class onboardingScreen4 extends StatelessWidget {
@@ -32,7 +30,8 @@ class onboardingScreen4 extends StatelessWidget {
             Center(
               child: SizedBox(width: 200,
                 child: MaterialButton(elevation: 0,height: 40,color:Colors.black87,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-                  Get.to(()=>accountSetup(),transition: Transition.leftToRightWithFade);
+                  // Get.to(()=>accountSetup(),transition: Transition.leftToRightWithFade);
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>accountSetup()));
                 },child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -31,7 +31,8 @@ class onboardingScreen3 extends StatelessWidget {
             Center(
               child: SizedBox(width: 200,
                 child: MaterialButton(elevation: 0,height: 40,color:Colors.black87,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-                  Get.to(()=>onboardingScreen4(),transition: Transition.leftToRightWithFade);
+                  // Get.to(()=>onboardingScreen4(),transition: Transition.leftToRightWithFade);
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>onboardingScreen4()));
                 },child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -1,3 +1,16 @@
+import 'package:bodybuddy/screens/Myinfo.dart';
+import 'package:bodybuddy/screens/advance.dart';
+import 'package:bodybuddy/screens/beginner.dart';
+import 'package:bodybuddy/screens/bmicalculator.dart';
+import 'package:bodybuddy/screens/intermediate.dart';
+import 'package:bodybuddy/screens/mealScreen.dart';
+import 'package:bodybuddy/screens/profileScreen.dart';
+import 'package:bodybuddy/workout/absWorkout.dart';
+import 'package:bodybuddy/workout/armsWorkout.dart';
+import 'package:bodybuddy/workout/backWorkout.dart';
+import 'package:bodybuddy/workout/chestWorkout.dart';
+import 'package:bodybuddy/workout/legWorkout.dart';
+import 'package:bodybuddy/workout/shoulderWorkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -42,41 +55,43 @@ class _homeScreenState extends State<homeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 2,
         toolbarHeight: 60,
         backgroundColor: Colors.black,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image(image: AssetImage("assets/images/dumm.png"),height: 50,width: 50,),
+            Image(image: AssetImage("assets/images/dumm.png"),height: 40,width: 40,),
            SizedBox(width: 10,),
             Text("Body Buddy",style: GoogleFonts.poppins(color: Colors.white,fontSize: 25,fontWeight:FontWeight.w500),),
           ],
         ),
         actions: [
           Icon(Icons.search,color: Colors.white,),
-          SizedBox(width: 10,),
+          SizedBox(width: 8,),
           Icon(Icons.bookmark_add,color: Colors.white,),
-          SizedBox(width: 10,),
+          SizedBox(width: 5,),
         ],
 
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items:  <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home,color: Colors.black,size: 20,),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search,color: Colors.black,size: 20,),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person,color: Colors.black,size: 20,),
-            label: 'Profile',
-          ),
+     bottomNavigationBar: NavigationBar(
+       destinations: [
+         NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+         NavigationDestination(icon: InkWell(onTap: (){
+           Navigator.push(context, MaterialPageRoute(builder: (context)=>bmicalculator()));
+         },child: Icon(Icons.leaderboard_rounded)), label: "BMI"),
+         NavigationDestination(icon: InkWell(onTap: (){
+           Navigator.push(context, MaterialPageRoute(builder: (context)=>mealScreen()));
+         },child: Icon(Icons.no_meals)), label: "Meal Plan"),
+         NavigationDestination(icon: InkWell(onTap: (){
+           Navigator.push(context, MaterialPageRoute(builder: (context)=>myinfo()));
+         },child: Icon(Icons.person)), label: "Me"),
+       ],
 
 
-        ],),
+     ),
+
       body: Container(
         height: double.infinity,
         color: Colors.white,
@@ -107,18 +122,29 @@ class _homeScreenState extends State<homeScreen> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     SizedBox(width: 10,),
-                   workoutBox(img: "assets/images/chest.jpg",text:"Chest Workout " ),
+                   InkWell(onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>chestWorkout()));
+                   },child: workoutBox(img: "assets/images/chest.jpg",text:"Chest Workout " )),
                     SizedBox(width: 10,),
-                    workoutBox(img: "assets/images/wings.jpg",text:"Back Workout" ),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>backWorkout()));
+                    },child: workoutBox(img: "assets/images/wings.jpg",text:"Back Workout" )),
                     SizedBox(width: 10,),
-                    workoutBox(img: "assets/images/shoulder.png",text:"Shoulder Workout" ),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>shoulderWorkout()));
+                    },child: workoutBox(img: "assets/images/shoulder.png",text:"Shoulder Workout" )),
                     SizedBox(width: 10,),
-                    workoutBox(img: "assets/images/bicepp.jpg",text:"Arms Workout " ),
+                    InkWell(onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>armsWorkout()));
+                    },child: workoutBox(img: "assets/images/bicepp.jpg",text:"Arms Workout " )),
                     SizedBox(width: 10,),
-                    workoutBox(img: "assets/images/leg.jpg",text:"Legs Workout " ),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>legWorkout()));
+                    },child: workoutBox(img: "assets/images/leg.jpg",text:"Legs Workout " )),
                     SizedBox(width: 10,),
-                    workoutBox(img: "assets/images/bicepp.jpg",text:"Bicep Workout " ),
-
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>absWorkout()));
+                    },child: workoutBox(img: "assets/images/core.jpg",text:"Abs Workout " )),
                     SizedBox(width: 10,),
                   ],
 
@@ -144,18 +170,39 @@ class _homeScreenState extends State<homeScreen> {
                children: [
 
                  MaterialButton(height: 20,minWidth:90,color:Colors.white,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>beginner()));
                  },child: Text("Beginner",style: TextStyle(color: Colors.black),),),
                  MaterialButton(height: 20,minWidth:90,color:Colors.white,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>intermediate()));
                  },child: Text("InternnState",style: TextStyle(color: Colors.black),),),
 
                  MaterialButton(height: 20,minWidth:90,color:Colors.white,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)) ,onPressed: (){
-
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>advance()));
                  },child: Text("Advance",style: TextStyle(color: Colors.black),),),
                ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
+              Container(
+                height: 150,
+                padding: EdgeInsets.only(left: 10),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    SizedBox(width: 10,),
+                    InkWell(onTap: (){
+
+                    },child: workoutBox(img: "assets/images/gyy.jpg",text:"Gyms" )),
+                    SizedBox(width: 10,),
+                    InkWell(onTap: (){
+
+                    },child: workoutBox(img: "assets/images/muscle.jpg",text:"Trainers" )),
+                    SizedBox(width: 15,),
+
+
+                  ],
+
+                ),
+              ),
 
 
 
